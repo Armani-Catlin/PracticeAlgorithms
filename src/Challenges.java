@@ -1,16 +1,26 @@
 public class Challenges {
     /** Create a function which returns the number of true values there are in an array.*/
     public static int countTrueFalse(boolean[] arr) {
-        // write your code here
-        // you will need to change the return statement
-        return Integer.parseInt(null);
+        int count = 0;
+        for (Boolean b : arr) if (b) count++;
+        return count;
     }
 
     /** Create a function that takes an array and returns the absolute difference between the biggest and smallest numbers.*/
     public static int differenceMinMax(int[] nums){
-        // write your code here
-        // you will need to change the return statement
-        return Integer.parseInt(null);
+        int min=nums[0];
+        int max=nums[0];
+        int diff=0;
+
+        for(int i=0; i < nums.length; i++)
+        {
+            if(nums[i]<min)
+                min=nums[i];
+            if(nums[i]>max)
+                max=nums[i];
+        }
+        diff = max-min;
+        return diff;
     }
 
     /**
