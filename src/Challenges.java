@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Locale;
+
 public class Challenges {
     /** Create a function which returns the number of true values there are in an array.*/
     public static int countTrueFalse(boolean[] arr) {
@@ -81,7 +85,7 @@ public class Challenges {
      * @return
      */
     public static String skipCount(int countFrom, int countTo, int countBy){
-        for (int i = countFrom;i < countTo;++i){
+        for (int i = countFrom;i < countTo;i++){
             String s=String.valueOf(i);
             return s + "..";
         }
@@ -132,8 +136,8 @@ public class Challenges {
      * Return "DUCK!" if found, otherwise,"Relax, there's no bomb.".
      */
     public static String duckTheBomb(String checkMe) {
-        if (checkMe.contains("bomb")) {
-            return "Duck!";
+        if (checkMe.toLowerCase().contains("bomb")) {
+            return "DUCK!";
         } else {
             return "Relax, there's no bomb.";
         }
@@ -163,16 +167,12 @@ public class Challenges {
      * and returns a new array in the same sequential order as the old array (minus duplicates).
      */
     public static String[] removeDups(String[] str) {
-        for(int s=0;s<str.length-1;s++)
-        {
-            for(int m=s + 1;m<str.length;m++)
-            {
-                if(str[s] != null && str[s].equals(str[m]))
-                {
-                    str[m] = null;
-                }
+        ArrayList<String> mark = new ArrayList<>();
+        for(String i : str) {
+            if (!mark.contains(i)) {
+                mark.add(i);
             }
         }
-        return str;
+        return (String[]) mark.toArray(new String[mark.size()]);
     }
 }
